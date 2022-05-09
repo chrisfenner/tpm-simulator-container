@@ -1,7 +1,4 @@
 FROM ubuntu:20.04
-LABEL org.opencontainers.image.source="https://github.com/chrisfenner/tpm-simulator-container"
-LABEL org.opencontainers.image.description="This is Docker image containing a TPM simulator plus related tools for testing."
-LABEL org.opencontainers.image.licenses="BSD-3-Clause"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # 2022/02/03
@@ -21,3 +18,7 @@ RUN mkdir ms-tpm-20-ref && cd ms-tpm-20-ref \
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 COPY --from=0 /tpm2-simulator .
+
+LABEL org.opencontainers.image.source="https://github.com/chrisfenner/tpm-simulator-container"
+LABEL org.opencontainers.image.description="This is Docker image containing a TPM simulator plus related tools for testing."
+LABEL org.opencontainers.image.licenses="BSD-3-Clause"
