@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
-LABEL version="0.1"
-LABEL description="This is Docker image containing a TPM simulator plus related tools for testing."
+LABEL org.opencontainers.image.source="https://github.com/chrisfenner/tpm-simulator-container"
+LABEL org.opencontainers.image.description="This is Docker image containing a TPM simulator plus related tools for testing."
+LABEL org.opencontainers.image.licenses="BSD-3-Clause"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # 2022/02/03
