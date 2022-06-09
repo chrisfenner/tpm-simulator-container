@@ -19,6 +19,9 @@ RUN mkdir ms-tpm-20-ref && cd ms-tpm-20-ref \
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 COPY --from=0 /tpm2-simulator .
 
+# Install OpenSSH
+RUN apt-get update && apt-get install -y openssh-client && rm -rf /var/lib/apt/lists/*
+
 LABEL org.opencontainers.image.source="https://github.com/chrisfenner/tpm-simulator-container"
-LABEL org.opencontainers.image.description="This is Docker image containing a TPM simulator plus related tools for testing."
+LABEL org.opencontainers.image.description="This is a Docker image containing a TPM simulator plus related tools for testing."
 LABEL org.opencontainers.image.licenses="BSD-3-Clause"
